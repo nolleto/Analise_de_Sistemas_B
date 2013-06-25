@@ -1,8 +1,9 @@
 
 public abstract class Funcionario {
-	abstract void salario();
+	abstract float salario();
+	abstract String nome();
 	
-	final void emitirSalario() {
-		salario();
+	final String emitirSalario() {
+		return nome() + " irá receber o salário de R$" + salario();
 	}
 }

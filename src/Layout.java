@@ -9,20 +9,39 @@ public class Layout extends JFrame {
 		JButton button1 = new JButton("Gerente");
 		JButton button2 = new JButton("Estagiario");
 		
+		Funcionario gerente = new Funcionario() {
+			
+			@Override
+			float salario() {
+				return 2000;
+			}
+			
+			@Override
+			String nome() {
+				return "Gerente";
+			}
+		};
+		
+		Funcionario estagiario = new Funcionario() {
+			
+			@Override
+			float salario() {
+				return 600;
+			}
+			
+			@Override
+			String nome() {
+				return "Estagiário";
+			}
+		};
+		
 		public Layout(){
 			
 			button1.addActionListener(new ActionListener() {
 				
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					Funcionario gerente = new Funcionario() {
-						
-						@Override
-						void salario() {
-							mostrarMensagem("2.000 reais");
-						}
-					};
-					gerente.emitirSalario();
+					mostrarMensagem(gerente.emitirSalario());
 				}
 			});
 			
@@ -30,14 +49,7 @@ public class Layout extends JFrame {
 				
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					Funcionario estagiario = new Funcionario() {
-						
-						@Override
-						void salario() {
-							mostrarMensagem("600 reais");
-						}
-					};
-					estagiario.emitirSalario();
+					mostrarMensagem(estagiario.emitirSalario());
 				}
 			});
 			
